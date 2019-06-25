@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Asignaturas.cs" />
     <Compile Include="Entidades\Estudiante.cs" />
     <Compile Include="Entidades\Inscripcion.cs" />
@@ -91,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
     <Folder Include="UI\Consulta\" />
     <Folder Include="UI\Registros\" />
   </ItemGroup>
