@@ -12,7 +12,8 @@ namespace SegundoParcial.DAL
     {
         public DbSet<Asignaturas> Asignaturas { get; set; }
         public DbSet<Estudiante> Estudiante { get; set; }
-        public DbSet<Inscripcion> Inscripcion { get; set; }
+        public DbSet<Inscripcion> Inscripcion {get; set; }
+        public DbSet<InscripcionDetalle> InscripcionDetalle { get; set; }
         public Contexto() : base("ConStr")
         {
 

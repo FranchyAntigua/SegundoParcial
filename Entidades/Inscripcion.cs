@@ -9,17 +9,20 @@ namespace SegundoParcial.Entidades
 {
    public class Inscripcion
     {
+
         [Key]
-        public int IncripcionId { get; set; }
+        public int InscripcionId { get; set; }
         public DateTime Fecha { get; set; }
         public int Monto { get; set; }
 
-        public Inscripcion()
-        {
-            this.IncripcionId = 0;
-            this.Fecha = DateTime.Now;
-            this.Monto = 0;
 
+        public Inscripcion(int inscripcionId)
+        {
+
+            InscripcionId = 0;
+            Fecha = DateTime.Now;
+            Monto = 0;
         }
     }
+
 }

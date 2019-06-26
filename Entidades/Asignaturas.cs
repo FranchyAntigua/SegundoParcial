@@ -13,12 +13,18 @@ namespace SegundoParcial.Entidades
         public int AsignaturaId { get; set; }
         public string Descripcion { get; set; }
         public int Creditos { get; set; }
+        public virtual List<InscripcionDetalle> Detalle { get; set; }
 
         public Asignaturas()
         {
             this.AsignaturaId = 0;
             this.Descripcion = string.Empty;
             this.Creditos = 0;
+        }
+
+        public override string ToString()
+        {
+            return Descripcion;
         }
     }
 }

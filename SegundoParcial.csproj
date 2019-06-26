@@ -52,20 +52,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AsignaturasBLL.cs" />
+    <Compile Include="BLL\EstudianteBLL.cs" />
+    <Compile Include="BLL\IRepository.cs" />
+    <Compile Include="BLL\Repositorio.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Asignaturas.cs" />
     <Compile Include="Entidades\Estudiante.cs" />
     <Compile Include="Entidades\Inscripcion.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Entidades\InscripcionDetalle.cs" />
+    <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\Consulta\cAsignatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\cAsignatura.Designer.cs">
+      <DependentUpon>cAsignatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rAsignatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rAsignatura.Designer.cs">
+      <DependentUpon>rAsignatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rEstudiante.Designer.cs">
+      <DependentUpon>rEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\rInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\rInscripcion.Designer.cs">
+      <DependentUpon>rInscripcion.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,7 +104,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Consulta\cAsignatura.resx">
+      <DependentUpon>cAsignatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rAsignatura.resx">
+      <DependentUpon>rAsignatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rEstudiante.resx">
+      <DependentUpon>rEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\rInscripcion.resx">
+      <DependentUpon>rInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,10 +132,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="UI\Consulta\" />
-    <Folder Include="UI\Registros\" />
+    <None Include="Resources\New_File_36861%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-guardar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eliminar-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-búsqueda-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
