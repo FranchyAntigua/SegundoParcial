@@ -1,4 +1,5 @@
-﻿using SegundoParcial.UI.Consulta;
+﻿using SegundoParcial.Entidades;
+using SegundoParcial.UI.Consulta;
 using SegundoParcial.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,19 @@ namespace SegundoParcial
 
         private void EstudianteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rEstudiante rEstudiante = new rEstudiante();
-            rEstudiante.Show();
+            new rEstudiante().ShowDialog();
+            //rEstudiante rEstudiante = new rEstudiante();
+            //rEstudiante.Show();
         }
 
         private void AsignaturaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            new cAsignatura().ShowDialog();
+            new cAsignaturas().ShowDialog();
+        }
+
+        private void EstudianteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+           new cEstudiante().ShowDialog();
         }
 
         //private void TipoAnalisisToolStripMenuItem_Click(object sender, EventArgs e)

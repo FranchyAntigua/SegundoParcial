@@ -103,6 +103,7 @@
             this.estudianteToolStripMenuItem1.Name = "estudianteToolStripMenuItem1";
             this.estudianteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.estudianteToolStripMenuItem1.Text = "Estudiante";
+            this.estudianteToolStripMenuItem1.Click += new System.EventHandler(this.EstudianteToolStripMenuItem1_Click);
             // 
             // inscripcionToolStripMenuItem1
             // 

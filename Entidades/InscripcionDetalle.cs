@@ -11,22 +11,22 @@ namespace SegundoParcial.Entidades
     {
         [Key]
         public int InscripcionId { get; set; }
-        public DateTime Fecha { get; set; }
-        public int Monto { get; set; }
+        public int AsignaturaId { get; set; }
+        public int EstudianteId { get; set; }
 
         public InscripcionDetalle(int inscripcionId)
         {
 
                 InscripcionId = 0;
-                Fecha = DateTime.Now;
-                Monto = 0;
+                AsignaturaId = 0;
+                EstudianteId = 0;
             }
 
-            public InscripcionDetalle(int inscripcionId, DateTime fecha, int monto)
+            public InscripcionDetalle(int inscripcionId, int asignaturaId, int estudianteId)
             {
                 InscripcionId = inscripcionId;
-                Fecha = fecha;
-                Monto = monto;
+                AsignaturaId = asignaturaId;
+                EstudianteId = estudianteId;
             }
         }
 }

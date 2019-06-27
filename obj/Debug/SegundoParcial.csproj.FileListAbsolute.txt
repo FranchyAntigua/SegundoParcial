@@ -16,4 +16,5 @@ C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.pdb
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.Menu.resources
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Registros.rAsignaturas.resources
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Registros.rInscripcion.resources
-C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cAsignatura.resources
+C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cEstudiante.resources
+C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cAsignaturas.resources

@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace SegundoParcial.UI.Consulta
 {
-    public partial class cAsignatura : Form
+    public partial class cAsignaturas : Form
     {
-        public cAsignatura()
+        public cAsignaturas()
         {
             InitializeComponent();
         }
@@ -35,5 +35,30 @@ namespace SegundoParcial.UI.Consulta
 
             AsignaturasConsultaDataGridView.DataSource = AsignaturasBLL.GetList(filtro);
         }
+
+        //private void CriterioTextBox_TextChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void Label2_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void Label1_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void AsignaturasConsultaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+
+        //}
     }
 }

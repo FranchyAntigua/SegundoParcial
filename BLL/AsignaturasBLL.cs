@@ -94,12 +94,12 @@ namespace SegundoParcial.BLL
         }
         public static List<Asignaturas> GetList(Expression<Func<Asignaturas, bool>> expression)
         {
-            List<Asignaturas> analisis = new List<Asignaturas>();
+            List<Asignaturas> asignaturas = new List<Asignaturas>();
             Contexto contexto = new Contexto();
 
             try
             {
-                analisis = contexto.Asignaturas.Where(expression).ToList();
+                asignaturas = contexto.Asignaturas.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
@@ -107,7 +107,7 @@ namespace SegundoParcial.BLL
                 throw;
             }
 
-            return analisis;
+            return asignaturas;
         }
     }
 }
