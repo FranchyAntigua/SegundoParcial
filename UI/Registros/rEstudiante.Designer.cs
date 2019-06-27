@@ -148,6 +148,7 @@
             // 
             this.BalanceTextBox.Location = new System.Drawing.Point(70, 116);
             this.BalanceTextBox.Name = "BalanceTextBox";
+            this.BalanceTextBox.ReadOnly = true;
             this.BalanceTextBox.Size = new System.Drawing.Size(105, 20);
             this.BalanceTextBox.TabIndex = 130;
             // 
@@ -174,6 +175,7 @@
             this.Controls.Add(this.IdnumericUpDown);
             this.Name = "rEstudiante";
             this.Text = "Registro Estudiante";
+            this.Load += new System.EventHandler(this.REstudiante_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);

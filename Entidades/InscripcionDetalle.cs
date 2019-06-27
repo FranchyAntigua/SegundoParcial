@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,23 +11,37 @@ namespace SegundoParcial.Entidades
    public class InscripcionDetalle
     {
         [Key]
+        public int Id { get; set; }
         public int InscripcionId { get; set; }
-        public int AsignaturaId { get; set; }
         public int EstudianteId { get; set; }
+        public int AsignaturaId { get; set; }
+        public int PrecioCredito { get; set; }
+        public int Monto { get; set; }
 
-        public InscripcionDetalle(int inscripcionId)
+        [ForeignKey("EstudianteId")]
+        public virtual Estudiante Estudiante { get; set; }
+
+        [ForeignKey("AsignaturaId")]
+        public virtual Asignaturas Asignatura { get; set; }
+
+        public InscripcionDetalle()
         {
-
-                InscripcionId = 0;
-                AsignaturaId = 0;
-                EstudianteId = 0;
-            }
-
-            public InscripcionDetalle(int inscripcionId, int asignaturaId, int estudianteId)
-            {
-                InscripcionId = inscripcionId;
-                AsignaturaId = asignaturaId;
-                EstudianteId = estudianteId;
-            }
+            Id = 0;
+            InscripcionId = 0;
+            AsignaturaId = 0;
+            EstudianteId = 0;
+            PrecioCredito = 0;
+            Monto = 0;
         }
+
+        public InscripcionDetalle(int id, int inscripcionId, int estudianteId, int asignaturaId, int precioCredito, int monto)
+        {
+            Id = id;
+            InscripcionId = inscripcionId;
+            AsignaturaId = asignaturaId;
+            EstudianteId = estudianteId;
+            PrecioCredito = precioCredito;
+            Monto = monto;
+        }
+   }
 }

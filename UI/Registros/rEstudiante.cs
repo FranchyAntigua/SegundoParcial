@@ -26,7 +26,7 @@ namespace SegundoParcial.UI.Registros
             estudiante.EstudianteId = Convert.ToInt32(IdnumericUpDown.Value);
             estudiante.Fecha= FechaDateTimePicker.Value;
             estudiante.Nombres = NombrestextBox.Text;
-            estudiante.Balance = BalanceTextBox.Text;
+            estudiante.Balance = 0;
 
             return estudiante;
         }
@@ -75,7 +75,7 @@ namespace SegundoParcial.UI.Registros
             {
                 FechaDateTimePicker.Value = estudiante.Fecha;
                 NombrestextBox.Text = estudiante.Nombres;
-                BalanceTextBox.Text = estudiante.Balance;
+                BalanceTextBox.Text = estudiante.Balance.ToString();
             }
             else
                 MessageBox.Show("No se encontró", "Falló",
@@ -135,6 +135,11 @@ namespace SegundoParcial.UI.Registros
                     MessageBox.Show("No se pudo guardar", "Falló",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void REstudiante_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

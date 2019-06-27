@@ -17,18 +17,17 @@ namespace SegundoParcial.Entidades
         public virtual List<InscripcionDetalle> Detalle { get; set; }
 
 
-        public Inscripcion(int inscripcionId)
+        public Inscripcion()
         {
-
             InscripcionId = 0;
             Fecha = DateTime.Now;
             Monto = 0;
             this.Detalle = new List<InscripcionDetalle>();
         }
 
-        public void AgregarDetalle(int inscripcionId, int EstudianteId, int Monto)
+        public void AgregarDetalle(int Id, int InscripcionId, int EstudianteId, int AsignaturaId, int PrecioCredito, int Monto)
         {
-            this.Detalle.Add(new InscripcionDetalle(inscripcionId, EstudianteId, Monto));
+            this.Detalle.Add(new InscripcionDetalle(Id, InscripcionId, EstudianteId, AsignaturaId, PrecioCredito, Monto));
         }
     }
 }

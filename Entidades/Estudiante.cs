@@ -13,14 +13,14 @@ namespace SegundoParcial.Entidades
         public int EstudianteId { get; set; }
         public DateTime Fecha { get; set; }
         public string Nombres { get; set; }
-        public string Balance { get; set; }
+        public int Balance { get; set; }
 
         public Estudiante()
         {
             this.EstudianteId = 0;
             this.Fecha = DateTime.Now;
             this.Nombres = string.Empty;
-            this.Balance = string.Empty;
+            this.Balance = 0;
 
         }
     }
