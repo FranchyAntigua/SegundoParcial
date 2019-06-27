@@ -17,6 +17,7 @@ namespace SegundoParcial.UI.Registros
         public rInscripcion()
         {
             InitializeComponent();
+            LlenarComboBox();
         }
 
         private void LlenarCampos(Inscripcion inscripcion)
@@ -59,7 +60,9 @@ namespace SegundoParcial.UI.Registros
                     Convert.ToInt32(item.Cells["Id"].Value),
                     Convert.ToInt32(item.Cells["InscripcionId"].Value),
                     Convert.ToInt32(item.Cells["EstudianteId"].Value),
+                    item.Cells["Nombres"].Value.ToString(),
                     Convert.ToInt32(item.Cells["AsignaturaId"].Value),
+                    item.Cells["Descripcion"].Value.ToString(),
                     Convert.ToInt32(item.Cells["PrecioCredito"].Value),
                     Convert.ToInt32(item.Cells["Monto"].Value)
                 );
@@ -83,9 +86,9 @@ namespace SegundoParcial.UI.Registros
         {
             bool estado = false;
 
-            if (AnalisisDataGridView.RowCount == 0)
+            if (DetalleDataGridView.RowCount == 0)
             {
-                MyErrorProvider.SetError(ResultadotextBox,
+                MyErrorProvider.SetError(DetalleDataGridView,
                     "No puede estar vacio");
                 estado = true;
             }
@@ -93,9 +96,47 @@ namespace SegundoParcial.UI.Registros
             return estado;
         }
 
+        public static int ToInt(string valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor, out retorno);
+
+            return retorno;
+        }
+
         private void Button1_Click(object sender, EventArgs e)
         {
+            List<InscripcionDetalle> detalle = new List<InscripcionDetalle>();
+            if (String.IsNullOrWhiteSpace(PrecioCreditoTextBox.Text))
+            {
+                MyErrorProvider.SetError(PrecioCreditoTextBox,
+                    "No puede estar vacio");
+                return;
+            }
+            if (DetalleDataGridView.DataSource != null)
+            {
+                detalle = (List<InscripcionDetalle>)DetalleDataGridView.DataSource;
+            }
+            detalle.Add(
+               new InscripcionDetalle(
+                   id: 0,
+                   inscripcionId: (int)IdNumericUpDown.Value,
+                   estudianteId: (int)EstudianteComboBox.SelectedValue,
+                   nombres: EstudianteComboBox.Text,
+                   asignaturaId: (int)AsignaturaComboBox.SelectedValue,
+                   descripcion: AsignaturaComboBox.Text,
+                   precioCredito: ToInt(PrecioCreditoTextBox.Text),
+                   monto: ToInt(MontoTextBox.Text)
+               ));
 
+            DetalleDataGridView.DataSource = null;
+            DetalleDataGridView.DataSource = detalle;
+            DetalleDataGridView.Columns["Id"].Visible = false;
+            DetalleDataGridView.Columns["InscripcionId"].Visible = false;
+            DetalleDataGridView.Columns["Estudiante"].Visible = false;
+            DetalleDataGridView.Columns["Asignatura"].Visible = false;
+            DetalleDataGridView.Columns["EstudianteId"].Visible = false;
+            DetalleDataGridView.Columns["AsignaturaId"].Visible = false;
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)

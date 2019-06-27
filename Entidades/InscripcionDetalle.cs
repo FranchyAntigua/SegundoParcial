@@ -14,7 +14,9 @@ namespace SegundoParcial.Entidades
         public int Id { get; set; }
         public int InscripcionId { get; set; }
         public int EstudianteId { get; set; }
+        public string Nombres { get; set; }
         public int AsignaturaId { get; set; }
+        public string Descripcion { get; set; }
         public int PrecioCredito { get; set; }
         public int Monto { get; set; }
 
@@ -29,17 +31,21 @@ namespace SegundoParcial.Entidades
             Id = 0;
             InscripcionId = 0;
             AsignaturaId = 0;
+            Descripcion = string.Empty;
             EstudianteId = 0;
+            Nombres = string.Empty;
             PrecioCredito = 0;
             Monto = 0;
         }
 
-        public InscripcionDetalle(int id, int inscripcionId, int estudianteId, int asignaturaId, int precioCredito, int monto)
+        public InscripcionDetalle(int id, int inscripcionId, int estudianteId, string nombres, int asignaturaId, string descripcion, int precioCredito, int monto)
         {
             Id = id;
             InscripcionId = inscripcionId;
             AsignaturaId = asignaturaId;
+            Descripcion = descripcion;
             EstudianteId = estudianteId;
+            Nombres = nombres;
             PrecioCredito = precioCredito;
             Monto = monto;
         }

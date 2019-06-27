@@ -64,22 +64,23 @@
             // asignaturaToolStripMenuItem1
             // 
             this.asignaturaToolStripMenuItem1.Name = "asignaturaToolStripMenuItem1";
-            this.asignaturaToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.asignaturaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.asignaturaToolStripMenuItem1.Text = "Asignatura";
             this.asignaturaToolStripMenuItem1.Click += new System.EventHandler(this.AsignaturaToolStripMenuItem1_Click);
             // 
             // estudianteToolStripMenuItem
             // 
             this.estudianteToolStripMenuItem.Name = "estudianteToolStripMenuItem";
-            this.estudianteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.estudianteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estudianteToolStripMenuItem.Text = "Estudiante";
             this.estudianteToolStripMenuItem.Click += new System.EventHandler(this.EstudianteToolStripMenuItem_Click);
             // 
             // inscripcionToolStripMenuItem
             // 
             this.inscripcionToolStripMenuItem.Name = "inscripcionToolStripMenuItem";
-            this.inscripcionToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.inscripcionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inscripcionToolStripMenuItem.Text = "Inscripcion";
+            this.inscripcionToolStripMenuItem.Click += new System.EventHandler(this.InscripcionToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -94,21 +95,21 @@
             // asignaturaToolStripMenuItem2
             // 
             this.asignaturaToolStripMenuItem2.Name = "asignaturaToolStripMenuItem2";
-            this.asignaturaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.asignaturaToolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
             this.asignaturaToolStripMenuItem2.Text = "Asignatura";
             this.asignaturaToolStripMenuItem2.Click += new System.EventHandler(this.AsignaturaToolStripMenuItem2_Click);
             // 
             // estudianteToolStripMenuItem1
             // 
             this.estudianteToolStripMenuItem1.Name = "estudianteToolStripMenuItem1";
-            this.estudianteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.estudianteToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.estudianteToolStripMenuItem1.Text = "Estudiante";
             this.estudianteToolStripMenuItem1.Click += new System.EventHandler(this.EstudianteToolStripMenuItem1_Click);
             // 
             // inscripcionToolStripMenuItem1
             // 
             this.inscripcionToolStripMenuItem1.Name = "inscripcionToolStripMenuItem1";
-            this.inscripcionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.inscripcionToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.inscripcionToolStripMenuItem1.Text = "Inscripcion";
             // 
             // Menu

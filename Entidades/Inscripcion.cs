@@ -25,9 +25,9 @@ namespace SegundoParcial.Entidades
             this.Detalle = new List<InscripcionDetalle>();
         }
 
-        public void AgregarDetalle(int Id, int InscripcionId, int EstudianteId, int AsignaturaId, int PrecioCredito, int Monto)
+        public void AgregarDetalle(int Id, int InscripcionId, int EstudianteId, string Nombres, int AsignaturaId, string Descripcion, int PrecioCredito, int Monto)
         {
-            this.Detalle.Add(new InscripcionDetalle(Id, InscripcionId, EstudianteId, AsignaturaId, PrecioCredito, Monto));
+            this.Detalle.Add(new InscripcionDetalle(Id, InscripcionId, EstudianteId, Nombres, AsignaturaId, Descripcion, PrecioCredito, Monto));
         }
     }
 }

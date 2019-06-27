@@ -17,6 +17,7 @@ namespace SegundoParcial.UI.Registros
         public rEstudiante()
         {
             InitializeComponent();
+            BalanceTextBox.Text = "0";
         }
 
         private Estudiante LlenaClase()

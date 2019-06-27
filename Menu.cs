@@ -44,6 +44,11 @@ namespace SegundoParcial
            new cEstudiante().ShowDialog();
         }
 
+        private void InscripcionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new rInscripcion().ShowDialog();
+        }
+
         //private void TipoAnalisisToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    rTipoAnalisis rTipoAnalisis = new rTipoAnalisis();
