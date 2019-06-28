@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 
 namespace SegundoParcial.BLL
 {
-   public class AsignaturasBLL
+   public class AsignaturasBLL  
     {
-
         public static bool Guardar(Asignaturas asignaturas)
         {
             bool estado = false;
@@ -31,7 +30,7 @@ namespace SegundoParcial.BLL
             }
             return estado;
         }
-        public static bool Editar(Asignaturas asignaturas)
+        public static bool Modificar(Asignaturas asignaturas)
         {
             bool estado = false;
 

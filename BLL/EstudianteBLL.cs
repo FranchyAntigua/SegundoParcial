@@ -33,7 +33,7 @@ namespace SegundoParcial.BLL
             return estado;
         }
 
-        public static bool Editar(Estudiante estudiante)
+        public static bool Modificar(Estudiante estudiante)
         {
             bool estado = false;
 

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BLL\AsignaturasBLL.cs" />
     <Compile Include="BLL\EstudianteBLL.cs" />
+    <Compile Include="BLL\InscripcionBLL.cs" />
     <Compile Include="BLL\IRepository.cs" />
     <Compile Include="BLL\Repositorio.cs" />
     <Compile Include="DAL\Contexto.cs" />

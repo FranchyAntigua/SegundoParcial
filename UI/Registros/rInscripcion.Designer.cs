@@ -49,6 +49,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.PrecioCreditoTextBox = new System.Windows.Forms.TextBox();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.CreditosLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
@@ -106,6 +108,7 @@
             this.Eliminarbutton.Size = new System.Drawing.Size(57, 49);
             this.Eliminarbutton.TabIndex = 107;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -115,6 +118,7 @@
             this.Nuevobutton.Size = new System.Drawing.Size(57, 49);
             this.Nuevobutton.TabIndex = 106;
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // Guardarbutton
             // 
@@ -124,6 +128,7 @@
             this.Guardarbutton.Size = new System.Drawing.Size(57, 49);
             this.Guardarbutton.TabIndex = 105;
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -133,6 +138,7 @@
             this.Buscarbutton.Size = new System.Drawing.Size(47, 28);
             this.Buscarbutton.TabIndex = 108;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // DetalleDataGridView
             // 
@@ -178,6 +184,7 @@
             this.AsignaturaComboBox.Name = "AsignaturaComboBox";
             this.AsignaturaComboBox.Size = new System.Drawing.Size(116, 21);
             this.AsignaturaComboBox.TabIndex = 112;
+            this.AsignaturaComboBox.SelectedIndexChanged += new System.EventHandler(this.AsignaturaComboBox_SelectedIndexChanged);
             // 
             // AgregarButton
             // 
@@ -195,10 +202,11 @@
             this.RemoverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoverButton.Location = new System.Drawing.Point(338, 81);
             this.RemoverButton.Name = "RemoverButton";
-            this.RemoverButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoverButton.Size = new System.Drawing.Size(75, 24);
             this.RemoverButton.TabIndex = 115;
             this.RemoverButton.Text = "Remover";
             this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
             // MontoTextBox
             // 
@@ -230,11 +238,32 @@
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(183, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 20);
+            this.label7.TabIndex = 119;
+            this.label7.Text = "Créditos:";
+            // 
+            // CreditosLabel
+            // 
+            this.CreditosLabel.AutoSize = true;
+            this.CreditosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreditosLabel.Location = new System.Drawing.Point(277, 37);
+            this.CreditosLabel.Name = "CreditosLabel";
+            this.CreditosLabel.Size = new System.Drawing.Size(0, 20);
+            this.CreditosLabel.TabIndex = 120;
+            // 
             // rInscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 439);
+            this.Controls.Add(this.CreditosLabel);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.PrecioCreditoTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.MontoTextBox);
@@ -286,5 +315,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox PrecioCreditoTextBox;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.Label CreditosLabel;
+        private System.Windows.Forms.Label label7;
     }
 }

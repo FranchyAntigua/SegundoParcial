@@ -119,7 +119,7 @@ namespace SegundoParcial.UI.Registros
 
                     if (usu != null)
                     {
-                        estado = EstudianteBLL.Editar(LlenaClase());
+                        estado = EstudianteBLL.Modificar(LlenaClase());
                         MessageBox.Show("Modificado", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

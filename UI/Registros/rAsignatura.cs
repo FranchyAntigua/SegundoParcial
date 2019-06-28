@@ -25,7 +25,7 @@ namespace SegundoParcial.UI.Registros
 
             asig.AsignaturaId = Convert.ToInt32(IdnumericUpDown.Value);
             asig.Descripcion = DescripciontextBox.Text;
-            asig.Creditos = Convert.ToInt32(IdnumericUpDown.Value);
+            asig.Creditos = Convert.ToInt32(CreditosTextBox.Text);
 
             return asig;
         }
@@ -34,7 +34,7 @@ namespace SegundoParcial.UI.Registros
         {
             IdnumericUpDown.Value = 0;
             DescripciontextBox.Clear();
-            CreditosnumericUpDown.Value = 0;
+            CreditosTextBox.Clear();
             MyErrorProvider.Clear();
         }
 
@@ -56,7 +56,7 @@ namespace SegundoParcial.UI.Registros
                 estado = true;
             }
 
-            if (CreditosnumericUpDown.Value < 0)
+            if (String.IsNullOrWhiteSpace(CreditosTextBox.Text))
             {
                 MyErrorProvider.SetError(IdnumericUpDown,
                     "No es un credito válido");
@@ -74,6 +74,7 @@ namespace SegundoParcial.UI.Registros
             if (asig != null)
             {
                 DescripciontextBox.Text = asig.Descripcion;
+                CreditosTextBox.Text = asig.Creditos.ToString();
             }
             else
                 MessageBox.Show("No se encontró", "Falló",
@@ -116,7 +117,7 @@ namespace SegundoParcial.UI.Registros
 
                     if (asignaturas != null)
                     {
-                        estado = AsignaturasBLL.Editar(LlenaClase());
+                        estado = AsignaturasBLL.Modificar(LlenaClase());
                         MessageBox.Show("Modificado", "Exito",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

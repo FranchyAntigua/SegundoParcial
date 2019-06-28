@@ -38,17 +38,16 @@
             this.DescripciontextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CreditosnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CreditosTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreditosnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::SegundoParcial.Properties.Resources.icons8_eliminar_26;
-            this.Eliminarbutton.Location = new System.Drawing.Point(152, 136);
+            this.Eliminarbutton.Location = new System.Drawing.Point(163, 121);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(63, 49);
             this.Eliminarbutton.TabIndex = 139;
@@ -58,7 +57,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::SegundoParcial.Properties.Resources.New_File_36861_1_;
-            this.Nuevobutton.Location = new System.Drawing.Point(13, 136);
+            this.Nuevobutton.Location = new System.Drawing.Point(24, 121);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(64, 49);
             this.Nuevobutton.TabIndex = 138;
@@ -68,7 +67,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::SegundoParcial.Properties.Resources.icons8_guardar_48;
-            this.Guardarbutton.Location = new System.Drawing.Point(83, 136);
+            this.Guardarbutton.Location = new System.Drawing.Point(94, 121);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(63, 49);
             this.Guardarbutton.TabIndex = 137;
@@ -103,15 +102,15 @@
             // 
             // DescripciontextBox
             // 
-            this.DescripciontextBox.Location = new System.Drawing.Point(85, 67);
+            this.DescripciontextBox.Location = new System.Drawing.Point(20, 79);
             this.DescripciontextBox.Name = "DescripciontextBox";
-            this.DescripciontextBox.Size = new System.Drawing.Size(105, 20);
+            this.DescripciontextBox.Size = new System.Drawing.Size(115, 20);
             this.DescripciontextBox.TabIndex = 144;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 67);
+            this.label5.Location = new System.Drawing.Point(17, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 143;
@@ -120,30 +119,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 95);
+            this.label2.Location = new System.Drawing.Point(138, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 146;
             this.label2.Text = "Creditos";
             // 
-            // CreditosnumericUpDown
-            // 
-            this.CreditosnumericUpDown.Location = new System.Drawing.Point(85, 93);
-            this.CreditosnumericUpDown.Name = "CreditosnumericUpDown";
-            this.CreditosnumericUpDown.Size = new System.Drawing.Size(57, 20);
-            this.CreditosnumericUpDown.TabIndex = 145;
-            // 
             // MyErrorProvider
             // 
             this.MyErrorProvider.ContainerControl = this;
             // 
-            // rAsignatura
+            // CreditosTextBox
+            // 
+            this.CreditosTextBox.Location = new System.Drawing.Point(141, 79);
+            this.CreditosTextBox.Name = "CreditosTextBox";
+            this.CreditosTextBox.Size = new System.Drawing.Size(63, 20);
+            this.CreditosTextBox.TabIndex = 147;
+            // 
+            // rAsignaturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 212);
+            this.ClientSize = new System.Drawing.Size(245, 185);
+            this.Controls.Add(this.CreditosTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.CreditosnumericUpDown);
             this.Controls.Add(this.DescripciontextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Eliminarbutton);
@@ -152,10 +151,9 @@
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IdnumericUpDown);
-            this.Name = "rAsignatura";
+            this.Name = "rAsignaturas";
             this.Text = "Registro Asignatura";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CreditosnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,7 +170,7 @@
         private System.Windows.Forms.TextBox DescripciontextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown CreditosnumericUpDown;
         private System.Windows.Forms.ErrorProvider MyErrorProvider;
+        private System.Windows.Forms.TextBox CreditosTextBox;
     }
 }

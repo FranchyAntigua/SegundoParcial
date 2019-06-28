@@ -46,12 +46,14 @@ namespace SegundoParcial.UI.Registros
 
         }
 
+
         private Inscripcion LlenaClase()
         {
             Inscripcion inscripcion = new Inscripcion();
 
             inscripcion.InscripcionId = Convert.ToInt32(IdNumericUpDown.Value);
             inscripcion.Fecha = FechaDateTimePicker.Value;
+            inscripcion.EstudianteId = Convert.ToInt32(EstudianteComboBox.SelectedValue);
             inscripcion.Monto = Convert.ToInt32(MontoTextBox.Text);
 
             foreach (DataGridViewRow item in DetalleDataGridView.Rows)
@@ -59,8 +61,6 @@ namespace SegundoParcial.UI.Registros
                 inscripcion.AgregarDetalle(
                     Convert.ToInt32(item.Cells["Id"].Value),
                     Convert.ToInt32(item.Cells["InscripcionId"].Value),
-                    Convert.ToInt32(item.Cells["EstudianteId"].Value),
-                    item.Cells["Nombres"].Value.ToString(),
                     Convert.ToInt32(item.Cells["AsignaturaId"].Value),
                     item.Cells["Descripcion"].Value.ToString(),
                     Convert.ToInt32(item.Cells["PrecioCredito"].Value),
@@ -79,6 +79,7 @@ namespace SegundoParcial.UI.Registros
             AsignaturaComboBox.SelectedIndex = 0;
             MontoTextBox.Clear();
             DetalleDataGridView.DataSource = null;
+            CreditosLabel.Text = "";
             MyErrorProvider.Clear();
         }
 
@@ -104,6 +105,51 @@ namespace SegundoParcial.UI.Registros
             return retorno;
         }
 
+        private void CalcularMonto()
+        {
+            List<InscripcionDetalle> detalle = new List<InscripcionDetalle>();
+
+            if (DetalleDataGridView.DataSource != null)
+            {
+                detalle = (List<InscripcionDetalle>)DetalleDataGridView.DataSource;
+            }
+            double Total = 0;
+            foreach (var item in detalle)
+            {
+                Total += item.Monto;
+            }
+            MontoTextBox.Text = Total.ToString();
+        }
+
+        private void QuitarMontoFila()
+        {
+            List<InscripcionDetalle> detalle = new List<InscripcionDetalle>();
+
+            if (DetalleDataGridView.DataSource != null)
+            {
+                detalle = (List<InscripcionDetalle>)DetalleDataGridView.DataSource;
+            }
+            double Total = 0;
+            foreach (var item in detalle)
+            {
+                Total -= item.Monto;
+            }
+            Total *= (-1);
+            MontoTextBox.Text = Total.ToString();
+        }
+
+        private void PrecioCreditos()
+        {
+            string descripcion = AsignaturaComboBox.Text;
+            Repositorio<Asignaturas> repositorio = new Repositorio<Asignaturas>();
+            List<Asignaturas> lista = repositorio.GetList(c => c.Descripcion == descripcion);
+            foreach (var item in lista)
+            {
+                CreditosLabel.Text = item.Creditos.ToString();
+            }
+        }
+
+        //ESTE ES EL EVENTO DE AGREGAR.
         private void Button1_Click(object sender, EventArgs e)
         {
             List<InscripcionDetalle> detalle = new List<InscripcionDetalle>();
@@ -117,27 +163,49 @@ namespace SegundoParcial.UI.Registros
             {
                 detalle = (List<InscripcionDetalle>)DetalleDataGridView.DataSource;
             }
+
+            int montoCre = 0;
+            int precioCred = ToInt(PrecioCreditoTextBox.Text);
+            int credi = ToInt(CreditosLabel.Text);
+            montoCre = precioCred * credi;
             detalle.Add(
                new InscripcionDetalle(
                    id: 0,
                    inscripcionId: (int)IdNumericUpDown.Value,
-                   estudianteId: (int)EstudianteComboBox.SelectedValue,
-                   nombres: EstudianteComboBox.Text,
                    asignaturaId: (int)AsignaturaComboBox.SelectedValue,
                    descripcion: AsignaturaComboBox.Text,
                    precioCredito: ToInt(PrecioCreditoTextBox.Text),
-                   monto: ToInt(MontoTextBox.Text)
+                   monto: montoCre
                ));
 
             DetalleDataGridView.DataSource = null;
             DetalleDataGridView.DataSource = detalle;
             DetalleDataGridView.Columns["Id"].Visible = false;
             DetalleDataGridView.Columns["InscripcionId"].Visible = false;
-            DetalleDataGridView.Columns["Estudiante"].Visible = false;
             DetalleDataGridView.Columns["Asignatura"].Visible = false;
-            DetalleDataGridView.Columns["EstudianteId"].Visible = false;
             DetalleDataGridView.Columns["AsignaturaId"].Visible = false;
+
+            CalcularMonto();
         }
+
+        //ESTE ES EL EVENTO DE REMOVER.
+        private void RemoverButton_Click(object sender, EventArgs e)
+        {
+            if (DetalleDataGridView.Rows.Count > 0 && DetalleDataGridView.CurrentRow != null)
+            {
+                List<InscripcionDetalle> detalle = (List<InscripcionDetalle>)DetalleDataGridView.DataSource;
+
+                detalle.RemoveAt(DetalleDataGridView.CurrentRow.Index);
+
+                DetalleDataGridView.DataSource = null;
+                DetalleDataGridView.DataSource = detalle;
+                DetalleDataGridView.Columns["Id"].Visible = false;
+                DetalleDataGridView.Columns["InscripcionId"].Visible = false;
+                DetalleDataGridView.Columns["Asignatura"].Visible = false;
+                DetalleDataGridView.Columns["AsignaturaId"].Visible = false;
+                QuitarMontoFila();
+            }
+        }               
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -147,6 +215,94 @@ namespace SegundoParcial.UI.Registros
         private void EstudianteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void AsignaturaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PrecioCreditos();
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(IdNumericUpDown.Value);
+            Inscripcion inscripcion = InscripcionBLL.Buscar(id);
+
+            if (inscripcion != null)
+            {
+                LlenarCampos(inscripcion);
+            }
+            else
+                MessageBox.Show("No se encontró!!!", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Guardarbutton_Click(object sender, EventArgs e)
+        {
+            Inscripcion inscripcion;
+            bool estado = false;
+
+            if (Validar())
+            {
+                MessageBox.Show("Favor revisar todos los campos!!", "Validación!!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            inscripcion = LlenaClase();
+
+            if (IdNumericUpDown.Value == 0)
+            {
+                estado = InscripcionBLL.Guardar(inscripcion);
+                MessageBox.Show("Guardado!!", "Exito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int id = Convert.ToInt32(IdNumericUpDown.Value);
+                Inscripcion inscrip = InscripcionBLL.Buscar(id);
+
+                if (inscrip != null)
+                {
+                    estado = InscripcionBLL.Modificar(inscrip);
+                    MessageBox.Show("Modificado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Id no existe", "Falló",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (estado)
+            {
+                Limpiar();
+            }
+            else
+                MessageBox.Show("No se pudo guardar!!", "Fallo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(IdNumericUpDown.Value);
+
+            Inscripcion inscripcion = InscripcionBLL.Buscar(id);
+
+            if (inscripcion != null)
+            {
+                if (InscripcionBLL.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                }
+                else
+                    MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
