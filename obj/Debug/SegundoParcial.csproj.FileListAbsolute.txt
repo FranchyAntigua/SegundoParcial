@@ -18,3 +18,4 @@ C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Registros.
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Registros.rInscripcion.resources
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cEstudiante.resources
 C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cAsignaturas.resources
+C:\Users\user\source\repos\SegundoParcial\obj\Debug\SegundoParcial.UI.Consulta.cInscripcion.resources

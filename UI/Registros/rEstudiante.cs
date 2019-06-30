@@ -58,12 +58,12 @@ namespace SegundoParcial.UI.Registros
                 estado = true;
             }
 
-            if (String.IsNullOrWhiteSpace(BalanceTextBox.Text))
-            {
-                MyErrorProvider.SetError(BalanceTextBox,
-                    "No puede estar vacio");
-                estado = true;
-            }
+            //if (String.IsNullOrWhiteSpace(BalanceTextBox.Text))
+            //{
+            //    MyErrorProvider.SetError(BalanceTextBox,
+            //        "No puede estar vacio");
+            //    estado = true;
+            //}
             return estado;
         }
         private void Buscarbutton_Click(object sender, EventArgs e)

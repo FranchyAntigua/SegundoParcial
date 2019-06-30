@@ -24,6 +24,15 @@ namespace SegundoParcial.UI.Consulta
         {
             Expression<Func<Estudiante, bool>> filtro = a => true;
             int id;
+            if (FiltroComboBox.SelectedIndex != 0)
+            {
+                if (String.IsNullOrWhiteSpace(CriterioTextBox.Text))
+                {
+                    MyErrorProvider.SetError(CriterioTextBox, "No puede estar vacio");
+                    return;
+                }
+            }            
+
             switch (FiltroComboBox.SelectedIndex)
             {
                 case 0://Filtrando por ID 
@@ -33,7 +42,12 @@ namespace SegundoParcial.UI.Consulta
 
             }
             EstudianteConsultaDataGridView.DataSource = EstudianteBLL.GetList(filtro);
+
         }
 
+        private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

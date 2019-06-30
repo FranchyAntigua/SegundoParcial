@@ -29,24 +29,34 @@ namespace SegundoParcial
 
         private void EstudianteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new rEstudiante().ShowDialog();
+            new rEstudiante().Show();
             //rEstudiante rEstudiante = new rEstudiante();
             //rEstudiante.Show();
         }
 
         private void AsignaturaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            new cAsignaturas().ShowDialog();
+            new cAsignaturas().Show();
         }
 
         private void EstudianteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           new cEstudiante().ShowDialog();
+           new cEstudiante().Show();
         }
 
         private void InscripcionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new rInscripcion().ShowDialog();
+            new rInscripcion().Show();
+        }
+
+        private void InscripcionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new cInscripcion().Show();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         //private void TipoAnalisisToolStripMenuItem_Click(object sender, EventArgs e)

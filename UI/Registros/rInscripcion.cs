@@ -23,12 +23,15 @@ namespace SegundoParcial.UI.Registros
         private void LlenarCampos(Inscripcion inscripcion)
         {
             IdNumericUpDown.Value = inscripcion.InscripcionId;
+            EstudianteComboBox.SelectedValue = inscripcion.EstudianteId;
             FechaDateTimePicker.Value = inscripcion.Fecha;
             MontoTextBox.Text = inscripcion.Monto.ToString();
+            DetalleDataGridView.DataSource = null;
             DetalleDataGridView.DataSource = inscripcion.Detalle;
-
             DetalleDataGridView.Columns["Id"].Visible = false;
             DetalleDataGridView.Columns["InscripcionId"].Visible = false;
+            DetalleDataGridView.Columns["Asignatura"].Visible = false;
+            DetalleDataGridView.Columns["AsignaturaId"].Visible = false;
         }
 
         private void LlenarComboBox()
@@ -205,21 +208,7 @@ namespace SegundoParcial.UI.Registros
                 DetalleDataGridView.Columns["AsignaturaId"].Visible = false;
                 QuitarMontoFila();
             }
-        }               
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EstudianteComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void AsignaturaComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            PrecioCreditos();
-        }
+        }     
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
@@ -252,11 +241,11 @@ namespace SegundoParcial.UI.Registros
                 return;
             }
 
-            inscripcion = LlenaClase();
+           
 
             if (IdNumericUpDown.Value == 0)
             {
-                estado = InscripcionBLL.Guardar(inscripcion);
+                estado = InscripcionBLL.Guardar(LlenaClase());
                 MessageBox.Show("Guardado!!", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -267,6 +256,7 @@ namespace SegundoParcial.UI.Registros
 
                 if (inscrip != null)
                 {
+                    inscrip = LlenaClase();
                     estado = InscripcionBLL.Modificar(inscrip);
                     MessageBox.Show("Modificado!!", "Exito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -303,6 +293,19 @@ namespace SegundoParcial.UI.Registros
             }
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EstudianteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void AsignaturaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PrecioCreditos();
         }
     }
 }

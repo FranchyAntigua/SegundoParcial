@@ -63,6 +63,16 @@ namespace SegundoParcial.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_40971 {
+            get {
+                object obj = ResourceManager.GetObject("Add_40971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_búsqueda_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-búsqueda-24", resourceCulture);
@@ -93,9 +103,39 @@ namespace SegundoParcial.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_menos_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menos-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New_File_36861_1_ {
             get {
                 object obj = ResourceManager.GetObject("New_File_36861(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Remove_40970 {
+            get {
+                object obj = ResourceManager.GetObject("Remove_40970", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_12841 {
+            get {
+                object obj = ResourceManager.GetObject("search_12841", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

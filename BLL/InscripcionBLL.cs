@@ -21,8 +21,12 @@ namespace SegundoParcial.BLL
             {
                 if (contexto.Inscripcion.Add(inscripcion) != null)
                 {
-                    contexto.Estudiante.Find(inscripcion.EstudianteId).Balance += inscripcion.Monto;
 
+                    foreach (var item in inscripcion.Detalle)
+                    {
+                        contexto.Estudiante.Find(inscripcion.EstudianteId).Balance += item.Monto;
+
+                    }
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -40,23 +44,40 @@ namespace SegundoParcial.BLL
             bool paso = false;
 
             Contexto contexto = new Contexto();
-            var Estudiante = contexto.Estudiante.Find(inscripcion.EstudianteId);
+            var estudiante = contexto.Estudiante.Find(inscripcion.EstudianteId);
             try
             {
                 Inscripcion InscripcionAnt = Buscar(inscripcion.InscripcionId);
+                InscripcionDetalle ant = contexto.InscripcionDetalle.Find(inscripcion.InscripcionId);
 
                 if (InscripcionAnt.EstudianteId != inscripcion.EstudianteId)
                 {
                     var EstudianteAnterior = contexto.Estudiante.Find(InscripcionAnt.EstudianteId);
-                    Estudiante.Balance += inscripcion.Monto;
+                    estudiante.Balance += inscripcion.Monto;
                     EstudianteAnterior.Balance -= InscripcionAnt.Monto;
-                    EstudianteBLL.Modificar(Estudiante);
+                    EstudianteBLL.Modificar(estudiante);
                     EstudianteBLL.Modificar(EstudianteAnterior);
                 }
 
-                int modificado = inscripcion.Monto - InscripcionAnt.Monto;
+
+                foreach (var item in inscripcion.Detalle)
+                {
+                    var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
+                    if (!inscripcion.Detalle.ToList().Exists(x => x.Id.Equals(item.Id)))
+                    {
+                        contexto.Entry(item).State = estado;
+                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance += item.Monto;
+                    }
+                    else
+                    {
+                        contexto.InscripcionDetalle.Add(item);
+                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance += item.Monto;
+                    }
+                }
+
+                /*int modificado = inscripcion.Monto - InscripcionAnt.Monto;
                 Estudiante.Balance += modificado;
-                EstudianteBLL.Modificar(Estudiante);
+                EstudianteBLL.Modificar(Estudiante);*/
 
                 contexto.Entry(inscripcion).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)

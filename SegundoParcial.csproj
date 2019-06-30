@@ -82,6 +82,12 @@
     <Compile Include="UI\Consulta\cEstudiante.Designer.cs">
       <DependentUpon>cEstudiante.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consulta\cInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\cInscripcion.Designer.cs">
+      <DependentUpon>cInscripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\rAsignatura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="UI\Consulta\cEstudiante.resx">
       <DependentUpon>cEstudiante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consulta\cInscripcion.resx">
+      <DependentUpon>cInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\rAsignatura.resx">
       <DependentUpon>rAsignatura.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,7 +151,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-menos-48.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New_File_36861%281%29.png" />
   </ItemGroup>
@@ -154,6 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-búsqueda-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_40970.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_40971.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_12841.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
