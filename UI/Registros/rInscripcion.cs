@@ -232,6 +232,7 @@ namespace SegundoParcial.UI.Registros
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Inscripcion inscripcion;
+
             bool estado = false;
 
             if (Validar())
@@ -256,6 +257,7 @@ namespace SegundoParcial.UI.Registros
 
                 if (inscrip != null)
                 {
+                  
                     inscrip = LlenaClase();
                     estado = InscripcionBLL.Modificar(inscrip);
                     MessageBox.Show("Modificado!!", "Exito",
@@ -294,15 +296,7 @@ namespace SegundoParcial.UI.Registros
             else
                 MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EstudianteComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         private void AsignaturaComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             PrecioCreditos();

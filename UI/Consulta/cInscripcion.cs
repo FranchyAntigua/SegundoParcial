@@ -114,5 +114,6 @@ namespace SegundoParcial.UI.Consulta
             else
                 ConsultaDataGridView.DataSource = Buscar();
         }
+
     }
 }

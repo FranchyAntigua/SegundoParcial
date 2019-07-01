@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BLL\AsignaturasTest.cs" />
     <Compile Include="BLL\EstudianteTest.cs" />
+    <Compile Include="BLL\InscripcionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

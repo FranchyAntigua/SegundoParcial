@@ -116,7 +116,6 @@
             this.EstudianteComboBox.Name = "EstudianteComboBox";
             this.EstudianteComboBox.Size = new System.Drawing.Size(116, 21);
             this.EstudianteComboBox.TabIndex = 110;
-            this.EstudianteComboBox.SelectedIndexChanged += new System.EventHandler(this.EstudianteComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -166,7 +165,6 @@
             this.MontoTextBox.ReadOnly = true;
             this.MontoTextBox.Size = new System.Drawing.Size(76, 29);
             this.MontoTextBox.TabIndex = 116;
-            this.MontoTextBox.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // label6
             // 

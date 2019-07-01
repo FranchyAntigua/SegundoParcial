@@ -117,7 +117,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FiltroComboBox);
             this.Controls.Add(this.label1);
-            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "cAsignaturas";
             this.Text = "Consulta de Asignatura";
             ((System.ComponentModel.ISupportInitialize)(this.AsignaturasConsultaDataGridView)).EndInit();

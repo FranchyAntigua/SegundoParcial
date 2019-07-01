@@ -56,7 +56,7 @@ namespace SegundoParcial.BLL
                     estudiante.Balance += inscripcion.Monto;
                     EstudianteAnterior.Balance -= InscripcionAnt.Monto;
                     EstudianteBLL.Modificar(estudiante);
-                    EstudianteBLL.Modificar(EstudianteAnterior);
+                   EstudianteBLL.Modificar(EstudianteAnterior);
                 }
 
 

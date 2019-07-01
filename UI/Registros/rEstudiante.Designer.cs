@@ -127,6 +127,7 @@
             this.Eliminarbutton.Size = new System.Drawing.Size(63, 49);
             this.Eliminarbutton.TabIndex = 121;
             this.Eliminarbutton.UseVisualStyleBackColor = false;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 

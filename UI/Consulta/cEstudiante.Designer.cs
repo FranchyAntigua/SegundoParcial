@@ -42,7 +42,7 @@
             // 
             // EstudianteConsultaDataGridView
             // 
-            this.EstudianteConsultaDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.EstudianteConsultaDataGridView.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.EstudianteConsultaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EstudianteConsultaDataGridView.Location = new System.Drawing.Point(179, 12);
             this.EstudianteConsultaDataGridView.Name = "EstudianteConsultaDataGridView";

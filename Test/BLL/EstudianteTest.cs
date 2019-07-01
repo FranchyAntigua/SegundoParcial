@@ -54,14 +54,14 @@ namespace Test.BLL
             Assert.IsNotNull(lista);
         }
 
-        //[TestMethod()]
-        //public void EliminarTest()
-        //{
-        //    EstudianteBLL<Estudiante> estudiante = new EstudianteBLL<Estudiante>();
-        //    bool estado = false;
-        //    estado = EstudianteBLL.Eliminar(1);
-        //    Assert.AreEqual(true, estado);
-        //}
+        [TestMethod()]
+        public void EliminarTest()
+        {
+            EstudianteBLL<Estudiante> estudiante = new EstudianteBLL<Estudiante>();
+            bool estado = false;
+            estado = EstudianteBLL.Eliminar(1);
+            Assert.AreEqual(true, estado);
+        }
         internal class EstudianteBLL<T>
         {
         }

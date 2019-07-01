@@ -166,5 +166,29 @@ namespace SegundoParcial.UI.Registros
                 e.Handled = false;
             }
         }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+
+            int id = Convert.ToInt32(IdnumericUpDown.Value);
+
+            Estudiante estudiante = EstudianteBLL.Buscar(id);
+
+            if (estudiante != null)
+            {
+                if (EstudianteBLL.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                }
+
+                else
+                    MessageBox.Show("No se pudo eliminar!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("No existe!!", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
-}
+
+  }
+
