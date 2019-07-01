@@ -183,6 +183,7 @@
             this.PrecioCreditoTextBox.Name = "PrecioCreditoTextBox";
             this.PrecioCreditoTextBox.Size = new System.Drawing.Size(70, 20);
             this.PrecioCreditoTextBox.TabIndex = 118;
+            this.PrecioCreditoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioCreditoTextBox_KeyPress);
             // 
             // MyErrorProvider
             // 

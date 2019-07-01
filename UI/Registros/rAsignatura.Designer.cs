@@ -66,6 +66,7 @@
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(115, 20);
             this.DescripciontextBox.TabIndex = 144;
+            this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
             // 
             // label5
             // 
@@ -95,6 +96,7 @@
             this.CreditosTextBox.Name = "CreditosTextBox";
             this.CreditosTextBox.Size = new System.Drawing.Size(63, 20);
             this.CreditosTextBox.TabIndex = 147;
+            this.CreditosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CreditosTextBox_KeyPress);
             // 
             // Eliminarbutton
             // 

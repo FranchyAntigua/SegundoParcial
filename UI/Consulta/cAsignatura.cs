@@ -18,35 +18,57 @@ namespace SegundoParcial.UI.Consulta
         public cAsignaturas()
         {
             InitializeComponent();
+            CriterioTextBox.ReadOnly = true;
+            FiltroComboBox.SelectedIndex = 0;
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             Expression<Func<Asignaturas, bool>> filtro = a => true;
             int id;
-            switch (FiltroComboBox.SelectedIndex)
+            if (FiltroComboBox.SelectedIndex == 1)
             {
-                case 0://Filtrando por ID 
-                    id = Convert.ToInt32(CriterioTextBox.Text);
-                    filtro = a => a.AsignaturaId == id;
-                    break;
+                CriterioTextBox.ReadOnly = false;
+                if (String.IsNullOrWhiteSpace(CriterioTextBox.Text))
+                {
+                    MyErrorProvider.SetError(CriterioTextBox, "No puede estar vacio");
+                    return;
+                }
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0://Todo.
+                        break;
+                    case 1://Id. 
+                        id = Convert.ToInt32(CriterioTextBox.Text);
+                        filtro = a => a.AsignaturaId == id;
+                        break;
 
+                }
             }
 
             AsignaturasConsultaDataGridView.DataSource = AsignaturasBLL.GetList(filtro);
         }
+        //private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (FiltroComboBox.SelectedIndex == 1)
+        //    {
+        //        CriterioTextBox.ReadOnly = false;
+        //    }
+        //}
 
+        private void FiltroComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (FiltroComboBox.SelectedIndex == 1)
+            {
+                CriterioTextBox.ReadOnly = false;
+            }
+        }
         //private void CriterioTextBox_TextChanged(object sender, EventArgs e)
         //{
 
         //}
 
         //private void Label2_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
         //{
 
         //}

@@ -71,6 +71,7 @@
             this.FiltroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltroComboBox.FormattingEnabled = true;
             this.FiltroComboBox.Items.AddRange(new object[] {
+            "Todo",
             "EstudianteId"});
             this.FiltroComboBox.Location = new System.Drawing.Point(49, 12);
             this.FiltroComboBox.Name = "FiltroComboBox";

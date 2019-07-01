@@ -18,36 +18,43 @@ namespace SegundoParcial.UI.Consulta
         public cEstudiante()
         {
             InitializeComponent();
+            CriterioTextBox.ReadOnly = true;
+            FiltroComboBox.SelectedIndex = 0;
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             Expression<Func<Estudiante, bool>> filtro = a => true;
             int id;
-            if (FiltroComboBox.SelectedIndex != 0)
+            if (FiltroComboBox.SelectedIndex ==1)
             {
+                CriterioTextBox.ReadOnly = false;
                 if (String.IsNullOrWhiteSpace(CriterioTextBox.Text))
                 {
                     MyErrorProvider.SetError(CriterioTextBox, "No puede estar vacio");
                     return;
                 }
-            }            
+                switch (FiltroComboBox.SelectedIndex)
+                {
+                    case 0://Todo.
+                        break;
+                    case 1://Id. 
+                        id = Convert.ToInt32(CriterioTextBox.Text);
+                        filtro = a => a.EstudianteId == id;
+                        break;
 
-            switch (FiltroComboBox.SelectedIndex)
-            {
-                case 0://Filtrando por ID 
-                    id = Convert.ToInt32(CriterioTextBox.Text);
-                    filtro = a => a.EstudianteId == id;
-                    break;
+                }
+            }          
 
-            }
             EstudianteConsultaDataGridView.DataSource = EstudianteBLL.GetList(filtro);
-
         }
 
         private void FiltroComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (FiltroComboBox.SelectedIndex == 1)
+            {
+                CriterioTextBox.ReadOnly = false;               
+            }
         }
     }
 }

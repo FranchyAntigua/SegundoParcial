@@ -76,6 +76,7 @@
             this.FiltroComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltroComboBox.FormattingEnabled = true;
             this.FiltroComboBox.Items.AddRange(new object[] {
+            "Todo",
             "InscripcionId",
             "Fecha",
             "EstudianteId",
@@ -155,6 +156,7 @@
             this.Buscarbutton.Size = new System.Drawing.Size(60, 41);
             this.Buscarbutton.TabIndex = 47;
             this.Buscarbutton.UseVisualStyleBackColor = false;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // MyErrorProvider
             // 
