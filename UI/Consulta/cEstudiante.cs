@@ -26,7 +26,7 @@ namespace SegundoParcial.UI.Consulta
         {
             Expression<Func<Estudiante, bool>> filtro = a => true;
             int id;
-            if (FiltroComboBox.SelectedIndex ==1)
+            if (FiltroComboBox.SelectedIndex == 1)
             {
                 CriterioTextBox.ReadOnly = false;
                 if (String.IsNullOrWhiteSpace(CriterioTextBox.Text))
@@ -44,7 +44,7 @@ namespace SegundoParcial.UI.Consulta
                         break;
 
                 }
-            }          
+            }
 
             EstudianteConsultaDataGridView.DataSource = EstudianteBLL.GetList(filtro);
         }
@@ -53,7 +53,38 @@ namespace SegundoParcial.UI.Consulta
         {
             if (FiltroComboBox.SelectedIndex == 1)
             {
-                CriterioTextBox.ReadOnly = false;               
+                CriterioTextBox.ReadOnly = false;
+            }
+        }
+
+        private void CriterioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede digitar Números", "Falló",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se escribir Letras", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se puede digitar Números", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -83,6 +83,7 @@ namespace SegundoParcial.UI.Registros
             MontoTextBox.Clear();
             DetalleDataGridView.DataSource = null;
             CreditosLabel.Text = "";
+            PrecioCreditoTextBox.Text= string.Empty;
             MyErrorProvider.Clear();
         }
 

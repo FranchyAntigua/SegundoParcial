@@ -55,6 +55,7 @@
             this.CriterioTextBox.Name = "CriterioTextBox";
             this.CriterioTextBox.Size = new System.Drawing.Size(126, 20);
             this.CriterioTextBox.TabIndex = 33;
+            this.CriterioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CriterioTextBox_KeyPress);
             // 
             // label2
             // 
