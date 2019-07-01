@@ -60,19 +60,28 @@ namespace SegundoParcial.BLL
                 }
 
 
-                foreach (var item in inscripcion.Detalle)
+                foreach (var item in InscripcionAnt.Detalle)
                 {
-                    var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
+                    //var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
                     if (!inscripcion.Detalle.ToList().Exists(x => x.Id.Equals(item.Id)))
                     {
-                        contexto.Entry(item).State = estado;
-                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance += item.Monto;
+                        item.Asignatura = null;
+                        contexto.Entry(item).State = EntityState.Deleted;
+                        //contexto.Entry(item).State = estado;
+                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance -= item.Monto;
                     }
                     else
                     {
                         contexto.InscripcionDetalle.Add(item);
-                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance += item.Monto;
+                        contexto.Estudiante.Find(estudiante.EstudianteId).Balance -= item.Monto;
                     }
+                }
+
+                foreach (var item in inscripcion.Detalle)
+                {
+                    contexto.Estudiante.Find(estudiante.EstudianteId).Balance += item.Monto;
+                    var estado = item.Id > 0 ? EntityState.Modified : EntityState.Added;
+                    contexto.Entry(item).State = estado;
                 }
 
                 /*int modificado = inscripcion.Monto - InscripcionAnt.Monto;
